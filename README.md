@@ -14,3 +14,5 @@ Next, lets get this site off the ground, aka be able to use it on your local mac
 Now, that WAMP is installed we need to configure it.  
 
 
+Still a bit of work to do, just need a bit more time :)
+

@@ -1,0 +1,56 @@
+# Welcome to the .htaccess file
+
+# this turns on the rewrite engine, which allows for rewriting the url  in order to direct people to the correct files on your site
+# Note, the rewrite engine heavily uses regular expressions, I will discuss the basics so you can get a handle on them, but 
+# spending a little time reading up on them will help you understand this
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# removes www from site requests, then forces a page reload
+# essentially, if someone puts in www.(myWebsite).com (assuming you have a .com website), the rewrite condition is met and the following rewrite rule
+# activates which removes the www from the website url.  While this is not completely necessary it makes your URL look
+# clean and professional.
+RewriteCond %{HTTP_HOST} ^www\.(myWebsite).com$ [NC] 
+RewriteRule ^(.*)$ http://(myWebsite).com/$1 [R=301,L]
+
+# redirects pretty urls to their appropriate target page
+# this is the meat and potatoes for directing people to your target page.  So, lets break idown these regular expressions
+# Rewrite rules essentially work that if  your URL matches the regular expression immediately after "RewriteRule", it rewrites the access path for the page.
+# That's wordy, so  lets break down the first Rewrite Rule
+# The ^ is your base URL, aka (myWebsite).com
+# The  /? says the URL can optionally contain a / and still activate the rewrite rule
+# The $ denotes the end of the URL
+# so, if you type in (myWebsite).com or (myWebsite).com/ this rewrite rule is activated and in this case redirects the URL to index.php, 
+# which is this sites primary routing file (apache isn't great at complex routing, so we route to a separate PHP for additional routing)
+# The second Rewrite rule is for accessing other pages on your site, for instance if you typed in (myWebsite).com/contactUs (or with a /) it would would redirect
+# to index.php?pages=contactUs, the ?page=contactUs is a "get" call to the index.php file and in this example it is passing the "page" variable with a value of "contactUs"
+# to the index.php page, which presumably would route us to the "contact us" page of the site.  
+RewriteRule ^/?$ /private/routes/index.php
+RewriteRule ^(\w+)/?$ /private/routes/index.php?page=$1
+RewriteRule ^([\w\d\/]*/)(\w+)/?$ /private/routes/index.php?folder=$1&page=$2
+
+# prevents users from calling php files directly
+# similar to above, except if someone's URL (aka Request) calls a PHP file directly it redirects them to your site's forbidden page, denoted by the [F]
+# This is important for security, for instance, if users can access php directly they could activate commands that willl access your databases and pretty much wreck your site.
+RewriteCond %{THE_REQUEST} (.*?)\.php
+RewriteRule (.*?)\.php - [F]
+
+# prevents hotlinking to the site (replace http://example.com with a site, following regex policy to add a site)
+# essentially, stops people form using your site's resources for their own site.  For instance, if you have a picture on your site
+# that someone else likes, they can't ask your server to spend its resources to load the image on to their site.
+RewriteCond %{HTTP_REFERER} !^/?.*$ [NC]
+RewriteRule \.(gif|jpe?g|png|bmp)$ - [F,NC]
+
+</IfModule>
+
+# 1 ----- custom error pages, essentially if any of these errors occur it redirects to the appropriate error page ----- 1 #
+
+ErrorDocument 404 /private/routes/index.php?page=404error&folder=errors/
+ErrorDocument 403 /private/routes/index.php?page=403error&folder=errors/
+
+
+# 2 ---- Prevent directory file listng ---- 2 #
+
+IndexIgnore *
+
+

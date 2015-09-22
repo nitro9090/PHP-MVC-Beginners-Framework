@@ -1,0 +1,9 @@
+.textBlock {
+    min-height: 260px;
+    margin-bottom: 15px;
+    //background: rgb(246, 246, 246);
+}
+
+p {
+    margin-bottom: 20px;
+}

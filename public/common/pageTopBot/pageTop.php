@@ -1,4 +1,4 @@
-<!-- This is the html for loading the top of the page, it is purely based on twitter bootstrap
+<!-- This is the html for loading the page navigation at the top of the page, it is purely based on twitter bootstrap
 If you don't know what that is I highly suggest googling "twitter bootstrap"-->
 
 <nav class="navbar navbar-default navbar-fixed-top" id="header">
@@ -7,7 +7,6 @@ If you don't know what that is I highly suggest googling "twitter bootstrap"-->
      </a>
      <div class="container-fluid">
           <div class="navbar-header">
-
                <button type="button" class="navbar-toggle collapsed"
                        data-toggle="collapse" data-target="#navbar">
                     <span class="sr-only">Toggle navigation</span> 

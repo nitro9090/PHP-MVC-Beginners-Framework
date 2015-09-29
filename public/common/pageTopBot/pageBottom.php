@@ -1,3 +1,5 @@
+<!-- the html for the page footer, also heavily based on twitter bootstrap-->
+
 <div class="container" id="footer">
     <hr id="footerHr">
     <div class="row">

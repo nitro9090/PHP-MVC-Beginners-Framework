@@ -2,15 +2,10 @@
    Author's custom styles
    ========================================================================== */
 
-@font-face {
+/*@font-face {
     font-family: loremIpsumFont;
     src: url("/public/common/fonts/Lorem Ipsum/LoremIpsum.ttf");
-}
-
-@font-face {
-    font-family: chickWeedFont;
-    src: url("/public/common/fonts/chickWeed Titling/chickweed titling.ttf");
-}
+}*/
 
 html, body {
     font-size: large;

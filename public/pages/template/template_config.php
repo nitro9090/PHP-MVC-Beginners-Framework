@@ -1,6 +1,7 @@
 <?php
      $current_page->page_disabled = false; // if true, this page will be disabled
      
+     $current_page->page_route = "standard_server_route";  //says which router to use for the page
      $current_page->page_controller = "standardController";  //says which controller to use for setting up the page
      $current_page->page_view = "standardView"; // says which view the page should use
      

@@ -1,8 +1,8 @@
 <?php
      $current_page->page_disabled = false; // if true, this page will be inaccessible
      
-     $current_page->page_controller = "standardController";  //says which controller to use for setting up the page
-     $current_page->page_view = "standardView"; // says which view the page should use
+     $current_page->page_controller = "standard_server_controller";  //says which controller to use for setting up the page
+     $current_page->page_view = "standard_server_view"; // says which view the page should use
      
      $current_page->requiresAuthentication = false;  //does this page require authentication for access
     

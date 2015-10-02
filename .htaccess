@@ -25,9 +25,11 @@ RewriteRule ^(.*)$ http://(myWebsite).com/$1 [R=301,L]
 # The second Rewrite rule is for accessing other pages on your site, for instance if you typed in (myWebsite).com/contactUs (or with a trailing /) it would would redirect
 # to index.php?pages=contactUs, the ?page=contactUs is a "get" call to the index.php file and in this example it is passing the "page" variable with a value of "contactUs"
 # to the index.php page, which presumably would route us to the "contact us" page of the site.  
-RewriteRule ^/?$ /private/index.php
-RewriteRule ^(\w+)/?$ /private/index.php?page=$1
-RewriteRule ^([\w\d\/]*/)(\w+)/?$ /private/index.php?folder=$1&page=$2
+
+RewriteRule ^([\w\d\/\-]*)$ /private/index.php?page=$1
+#RewriteRule ^/?$ /private/index.php
+#RewriteRule ^(\w+)/?$ /private/index.php?page=$1
+#RewriteRule ^([\w\d\/]*/)(\w+)/?$ /private/index.php?folder=$1&page=$2
 
 # prevents users from calling php files directly
 # similar to above, except if someone's URL (aka Request) calls a PHP file directly it redirects them to your site's forbidden page, denoted by the [F]

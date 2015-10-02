@@ -31,7 +31,7 @@ class PageSetup {
           $this->site_rootPath = $rootPath;
           $this->page_name = $pageName;
           $this->page_folder = $folder;
-          $this->page_folderFullPath = $this->site_rootPath . "/public/pages" . "/" . $this->page_folder . $this->page_name . "/";
+          $this->page_folderFullPath = $this->site_rootPath . "/public/pages/" . $this->page_folder . $this->page_name . "/";
      }
 
      // checks to see if the page exists and isn't 

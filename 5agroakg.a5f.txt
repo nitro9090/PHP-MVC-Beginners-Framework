@@ -1,0 +1,24 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   .htaccess
+#	modified:   README.md
+#	modified:   nbproject/private/private.xml
+#	modified:   private/index.php
+#	new file:   private/models/standard_page_model.php
+#	modified:   private/routes/standard_server_route.php
+#	modified:   public/pages/errors/403error/403error_config.php
+#	modified:   public/pages/errors/404error/404error_config.php
+#	modified:   public/pages/errors/pageDisabled/pageDisabled_config.php
+#	modified:   public/pages/main/main.php
+#	modified:   public/pages/main/main_config.php
+#	modified:   public/pages/template/template_config.php
+#
+# Changes not staged for commit:
+#	deleted:    private/models/page_model.php
+#
+
